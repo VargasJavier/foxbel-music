@@ -1,15 +1,22 @@
 import { useEffect, useState } from "react";
-import { getMusics } from "../../Helpers/getMusics";
+import { getMusics, getValueSearch } from "../../Helpers/getMusics";
 import MusicList from "../MusicList";
+import Search from "../Search";
 
 const MusicListContainer = () => {
   const [musics, setMusics] = useState([]);
+  const [search, setSearch] = useState("");
 
   useEffect(() => {
-    getMusics(setMusics);
-  }, []);
+    search ? getValueSearch(musics, search, setMusics) : getMusics(setMusics);
+  }, [search]);
 
-  return <MusicList musics={musics} />;
+  return (
+    <>
+      <Search setSearch={setSearch} />
+      <MusicList musics={musics} />
+    </>
+  );
 };
 
 export default MusicListContainer;

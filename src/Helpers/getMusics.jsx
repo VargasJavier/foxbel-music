@@ -14,7 +14,7 @@ export const getMusics = (setMusics) => {
       .then((response) => response.json())
       .then((response) => {
         setMusics((prev) => {
-          const array = [...prev, ...response.data.splice(0, 5)];
+          const array = [...prev, ...response.data];
           return sortArray(array);
         });
       })
@@ -25,3 +25,10 @@ export const getMusics = (setMusics) => {
 function sortArray(array) {
   return array.sort(() => Math.random() - 0.5);
 }
+
+export const getValueSearch = (musics, search, setMusics) => {
+  const musicsFilters = musics.filter((m) => {
+    return m.title.toLowerCase().includes(search.toLowerCase());
+  });
+  setMusics(musicsFilters);
+};

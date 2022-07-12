@@ -2,7 +2,7 @@ import { FaSistrix as IconSearch } from "react-icons/fa";
 
 const Search = ({ setSearch }) => {
   return (
-    <section>
+    <section className='container__search'>
       <div className='container search'>
         <IconSearch className='search__icon' />
         <input
