@@ -4,7 +4,7 @@ const Music = ({ music }) => {
       <div className='music__container-image'>
         <img
           className='music__image'
-          src={music.album.cover}
+          src={music.album.cover_medium}
           alt='Song thumbnail'
         />
       </div>
