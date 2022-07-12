@@ -6,15 +6,18 @@ import Search from "../Search";
 const MusicListContainer = () => {
   const [musics, setMusics] = useState([]);
   const [search, setSearch] = useState("");
+  const [isPlay, setPlay] = useState(false);
 
   useEffect(() => {
     search ? getValueSearch(musics, search, setMusics) : getMusics(setMusics);
   }, [search]);
 
+  useEffect(() => {}, [isPlay]);
+
   return (
     <>
       <Search setSearch={setSearch} />
-      <MusicList musics={musics} />
+      <MusicList musics={musics} isPlay={isPlay} setPlay={setPlay} />
     </>
   );
 };

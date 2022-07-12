@@ -18,6 +18,10 @@ html {
   font-size: 14px;
 }
 
+#root {
+  font-family: "Quicksand", sans-serif;
+}
+
 h1,
 h2,
 p {
@@ -57,7 +61,7 @@ h1 {
 .search {
   width: 85%;
   justify-content: start;
-  border: solid 0.063rem var(--gray);
+  border: solid 0.071rem var(--gray);
   border-radius: 2rem;
   padding: 0.3rem;
   margin: 0.75rem 1.75rem;
@@ -71,6 +75,7 @@ h1 {
 .search__icon {
   margin: 0 1rem;
   fill: var(--soft-gray);
+  box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.05);
 }
 
 .search__input {
@@ -115,10 +120,15 @@ h1 {
   right: 0;
   left: 0;
   bottom: 0;
-  width: 3rem;
-  height: 3rem;
+  width: 3.5rem;
+  height: 3.5rem;
   margin: auto;
   fill: var(--bg-card);
+}
+
+.music__icon-pause {
+  width: 2.25rem;
+  height: 2.25rem;
 }
 
 .music__title {
@@ -128,4 +138,9 @@ h1 {
 }
 
 .music__parraph {
+  font-size: 0.857rem;
+}
+
+.hidden {
+  display: none;
 }

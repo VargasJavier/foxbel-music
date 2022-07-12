@@ -6,7 +6,7 @@ const Search = ({ setSearch }) => {
       <section className='container__search container__search-title'>
         <section className='content__search-title'>
           <h1>Hello,</h1>
-          <p>What you want yo hear today?</p>
+          <p>What do you want yo hear today?</p>
         </section>
       </section>
       <section className='container__search'>
@@ -15,7 +15,7 @@ const Search = ({ setSearch }) => {
           <input
             className='search__input'
             type='text'
-            placeholder='Search your movie'
+            placeholder='Search your music'
             onChange={(e) => {
               setSearch(e.target.value.toLowerCase());
             }}
