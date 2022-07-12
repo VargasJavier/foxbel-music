@@ -18,10 +18,16 @@ html {
   font-size: 14px;
 }
 
-h2 {
+h1,
+h2,
+p {
   font-size: 1rem;
   margin-block-start: 0.25rem;
   margin-block-end: 0.25rem;
+}
+
+h1 {
+  font-size: 1.5rem;
 }
 
 .container {
@@ -36,11 +42,20 @@ h2 {
 .container__search {
   display: flex;
   justify-content: center;
-  padding-top: 1rem;
+}
+
+.container__search-title {
+  flex-direction: column;
+  align-items: center;
+  margin: 1rem 0 0 0;
+}
+
+.content__search-title {
+  width: 85%;
 }
 
 .search {
-  width: 80%;
+  width: 85%;
   justify-content: start;
   border: solid 0.063rem var(--gray);
   border-radius: 2rem;
@@ -79,8 +94,7 @@ h2 {
 
 .music {
   display: inline-block;
-  width: 10rem;
-  max-width: 10rem;
+  width: 80%;
   padding: 0.5rem;
   margin: 0.5rem 0;
   background-color: var(--white);
@@ -88,10 +102,23 @@ h2 {
 }
 
 .music__container-image {
+  position: relative;
 }
 
 .music__image {
   width: 100%;
+}
+
+.music__icon {
+  position: absolute;
+  top: 0;
+  right: 0;
+  left: 0;
+  bottom: 0;
+  width: 3rem;
+  height: 3rem;
+  margin: auto;
+  fill: var(--bg-card);
 }
 
 .music__title {
@@ -101,6 +128,4 @@ h2 {
 }
 
 .music__parraph {
-  margin-block-start: 0;
-  margin-block-end: 0;
 }

@@ -28,7 +28,10 @@ function sortArray(array) {
 
 export const getValueSearch = (musics, search, setMusics) => {
   const musicsFilters = musics.filter((m) => {
-    return m.title.toLowerCase().includes(search.toLowerCase());
+    return (
+      m.title.toLowerCase().includes(search.toLowerCase()) ||
+      m.album.title.toLowerCase().includes(search.toLowerCase())
+    );
   });
   setMusics(musicsFilters);
 };

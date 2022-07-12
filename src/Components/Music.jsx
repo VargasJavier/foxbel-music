@@ -1,7 +1,10 @@
+import { BiPlay as PlayIcon } from "react-icons/bi";
+
 const Music = ({ music }) => {
   return (
     <article className='music'>
       <div className='music__container-image'>
+        <PlayIcon className='music__icon' />
         <img
           className='music__image'
           src={music.album.cover_medium}

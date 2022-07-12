@@ -1,7 +1,6 @@
 import Music from "./Music";
 
 const MusicList = ({ musics }) => {
-  console.log(musics);
   return (
     <div className='container container__musics'>
       {musics ? (
