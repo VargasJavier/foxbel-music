@@ -6,7 +6,7 @@ const Search = ({ setSearch }) => {
       <section className='container__search container__search-title'>
         <section className='content__search-title'>
           <h1>Hello,</h1>
-          <p>What do you want yo hear today?</p>
+          <p>What do you want to hear today?</p>
         </section>
       </section>
       <section className='container__search'>
