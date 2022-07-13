@@ -27,7 +27,7 @@ const Music = ({ music, isPlay, setPlay }) => {
           />
         )}
         <picture>
-          <source media='(max-width:720px)' srcset={music.album.cover_medium} />
+          <source media='(max-width:720px)' srcSet={music.album.cover_medium} />
           <img
             className='music__image'
             src={music.album.cover_big}

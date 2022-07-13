@@ -1,8 +1,13 @@
 const baseURL = "https://deezerdevs-deezer.p.rapidapi.com";
-const artists = ["bizarrap", "PZK", "bad%20bunny"];
+const artists = ["PZK"];
 
 // Obtenemos los datos y los mezclamos
-export const getMusics = (setMusics) => {
+export const getMusics = (musics, setMusics, search = "") => {
+  search ? searchAPI(setMusics, search, 1) : searchAPI(setMusics, artists);
+  if (musics) setMusics(musics);
+};
+// Search API
+const searchAPI = (setMusics, value, status = 0) => {
   const options = {
     method: "GET",
     headers: {
@@ -10,35 +15,43 @@ export const getMusics = (setMusics) => {
       "X-RapidAPI-Host": "deezerdevs-deezer.p.rapidapi.com",
     },
   };
-  artists.forEach((artist) => {
-    fetch(`${baseURL}/search?q=${artist}`, options)
-      .then((response) => response.json())
-      .then((response) => {
-        const data = response.data.map((e) => {
-          return { ...e, isPlay: false };
-        });
-        setMusics((prev) => {
-          const array = [...prev, ...data];
-          return sortArray(array);
-        });
-      })
-      .catch((err) => console.error(err));
-  });
+  status
+    ? searchFetch(value, setMusics, options)
+    : value.forEach((artist) => searchFetch(artist, setMusics, options));
+  return;
+};
+// Search Fetch
+const searchFetch = (artist, setMusics, options) => {
+  fetch(`${baseURL}/search?q=${artist}`, options)
+    .then((response) => response.json())
+    .then((response) => {
+      const musicData = response.data.splice(0, 10);
+      const data = musicData.map((e) => {
+        return { ...e, isPlay: false };
+      });
+      setMusics(sortArray(data));
+    })
+    .catch((err) => console.error(err));
 };
 // Función para mezclar
 function sortArray(array) {
   return array.sort(() => Math.random() - 0.5);
 }
 // Obtenemos el valor del input y filtra según su valor
-export const getValueSearch = (musics, search, setMusics) => {
-  const musicsFilters = musics.filter((m) => {
-    return (
-      m.title.toLowerCase().includes(search.toLowerCase()) ||
-      m.album.title.toLowerCase().includes(search.toLowerCase())
-    );
-  });
-  setMusics(musicsFilters);
-};
+// export const getValueSearch = (musics, search, setMusics) => {
+//   console.log("getValueSearch");
+//   const musicsFilters = musics.filter((m) => {
+//     return (
+//       m.title.toLowerCase().includes(search.toLowerCase()) ||
+//       m.album.title.toLowerCase().includes(search.toLowerCase())
+//     );
+//   });
+//   clearMusics(setMusics);
+//   console.log("VALOR", musics);
+//   setMusics(musicsFilters);
+//   return;
+// };
+
 // Saber si la canción está en play o pause
 export const isPlayOrPause = (e, music) => {
   music.isPlay = !music.isPlay;

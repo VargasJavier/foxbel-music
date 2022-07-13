@@ -2,7 +2,6 @@ import Music from "./Music";
 import SkeletonList from "./SkeletonList";
 
 const MusicList = ({ musics, isPlay, setPlay }) => {
-  console.log(musics);
   return (
     <div className='container container__musics'>
       {musics ? (

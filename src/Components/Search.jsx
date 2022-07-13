@@ -1,6 +1,7 @@
 import { FaSistrix as IconSearch } from "react-icons/fa";
+import { IoClose as IconClose } from "react-icons/io5";
 
-const Search = ({ setSearch }) => {
+const Search = ({ setSearch, value, setValue }) => {
   return (
     <>
       <section className='container__search container__search-title'>
@@ -11,15 +12,24 @@ const Search = ({ setSearch }) => {
       </section>
       <section className='container__search'>
         <div className='container search'>
-          <IconSearch className='search__icon' />
           <input
             className='search__input'
             type='text'
             placeholder='Search your music'
+            value={value}
             onChange={(e) => {
-              setSearch(e.target.value.toLowerCase());
+              let inputValue = e.target.value;
+              setValue(inputValue);
+              if (!inputValue) setSearch("");
             }}
           />
+          <button className='button__icon' onClick={setSearch(value)}>
+            {value ? (
+              <IconClose className='search__icon search__icon-max' />
+            ) : (
+              <IconSearch className='search__icon' />
+            )}
+          </button>
         </div>
       </section>
     </>
