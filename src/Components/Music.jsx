@@ -26,11 +26,14 @@ const Music = ({ music, isPlay, setPlay }) => {
             }}
           />
         )}
-        <img
-          className='music__image'
-          src={music.album.cover_medium}
-          alt='Song thumbnail'
-        />
+        <picture>
+          <source media='(max-width:720px)' srcset={music.album.cover_medium} />
+          <img
+            className='music__image'
+            src={music.album.cover_big}
+            alt='Song thumbnail'
+          />
+        </picture>
       </div>
       <h2 className='music__title'>{music.title}</h2>
       <p className='music__parraph'>{music.artist.name}</p>

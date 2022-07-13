@@ -1,4 +1,5 @@
 import Music from "./Music";
+import SkeletonList from "./SkeletonList";
 
 const MusicList = ({ musics, isPlay, setPlay }) => {
   console.log(musics);
@@ -9,7 +10,7 @@ const MusicList = ({ musics, isPlay, setPlay }) => {
           <Music key={i} music={music} isPlay={isPlay} setPlay={setPlay} />
         ))
       ) : (
-        <p>No hay registros</p>
+        <SkeletonList />
       )}
     </div>
   );
