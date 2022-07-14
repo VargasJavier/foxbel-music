@@ -12,6 +12,7 @@ const Music = ({ music, isPlay, setPlay }) => {
             <PauseIcon
               className='music__icon music__icon-pause'
               onClick={(e) => {
+                e.stopPropagation();
                 isPlayOrPause(e, music);
                 setPlay(false);
               }}

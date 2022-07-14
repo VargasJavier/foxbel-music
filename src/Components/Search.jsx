@@ -21,13 +21,10 @@ const Search = ({ setSearch, value, setValue }) => {
               let inputValue = e.target.value;
               setValue(inputValue);
               if (!inputValue) setSearch("");
+              else setSearch(value);
             }}
           />
-          <button
-            className='button__icon'
-            onClick={setSearch(value)}
-            aria-label='button for search'
-          >
+          <button className='button__icon' aria-label='button for search'>
             {value ? (
               <IconClose className='search__icon search__icon-max' />
             ) : (
