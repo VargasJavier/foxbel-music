@@ -1,10 +1,11 @@
+import { Link } from "react-router-dom";
 import { BiPlay as PlayIcon } from "react-icons/bi";
 import { IoMdPause as PauseIcon } from "react-icons/io";
-import { isPlayOrPause } from "../Helpers/getMusics";
+import { isPlayOrPause } from "../helpers/getMusics";
 
 const Music = ({ music, isPlay, setPlay }) => {
   return (
-    <article className='music'>
+    <Link to={`/music/${music.id}`} className='music'>
       <div className='music__container-image'>
         {music.isPlay && isPlay ? (
           <>
@@ -21,6 +22,7 @@ const Music = ({ music, isPlay, setPlay }) => {
           <PlayIcon
             className='music__icon'
             onClick={(e) => {
+              e.stopPropagation();
               isPlayOrPause(e, music);
               setPlay(true);
             }}
@@ -37,7 +39,7 @@ const Music = ({ music, isPlay, setPlay }) => {
       </div>
       <h2 className='music__title'>{music.title}</h2>
       <p className='music__parraph'>{music.artist.name}</p>
-    </article>
+    </Link>
   );
 };
 export default Music;

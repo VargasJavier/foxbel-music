@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { getMusics } from "../../Helpers/getMusics";
+import { useGetMusics } from "../../hooks/useGetMusics";
 import MusicList from "../MusicList";
 import Search from "../Search";
 
@@ -12,8 +12,8 @@ const MusicListContainer = () => {
 
   useEffect(() => {
     search
-      ? getMusics(musics, setMusics, search)
-      : getMusics(musics, setMusics);
+      ? useGetMusics(musics, setMusics, search)
+      : useGetMusics(musics, setMusics);
   }, [search]);
 
   useEffect(() => {}, [isPlay]);
