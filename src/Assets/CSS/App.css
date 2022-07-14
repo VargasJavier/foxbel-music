@@ -344,6 +344,16 @@ a:-webkit-any-link {
   -webkit-text-fill-color: transparent;
 }
 
+.wrapper__like {
+  font-size: 1.25rem;
+  fill: var(--gray);
+}
+
+.wrapper__repeat {
+  font-size: 1.55rem;
+  color: var(--gray);
+}
+
 .wrapper__container-icon {
   display: flex;
   justify-content: center;

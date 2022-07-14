@@ -7,7 +7,6 @@ import { FaRegHeart as LikeIcon } from "react-icons/fa";
 import { IoRepeatOutline as RepeatIcon } from "react-icons/io5";
 
 const MusicItem = ({ item }) => {
-  console.log("item", item);
   const [isPlay, setIsPlay] = useState(true);
   const [isLike, setIsLike] = useState(false);
   const { title, preview } = item;
@@ -37,12 +36,6 @@ const MusicItem = ({ item }) => {
               <span className='wrapper__current'>0:00</span>
               <span className='wrapper__current'>0:30</span>
             </section>
-            <audio
-              src={preview}
-              className='wrapper__audio hidden'
-              autoPlay
-              controls
-            ></audio>
           </section>
           <section className='wrapper__controls wrapper__flex'>
             {isLike ? (
@@ -53,6 +46,12 @@ const MusicItem = ({ item }) => {
             {isPlay ? (
               <div className='wrapper__container-icon'>
                 <PlayIcon className='wrapper__play-pause wrapper_icon' />
+                <audio
+                  src={preview}
+                  className='wrapper__audio hidden'
+                  autoPlay
+                  controls
+                ></audio>
               </div>
             ) : (
               <div className='wrapper__container-icon'>

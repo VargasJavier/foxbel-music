@@ -7,7 +7,6 @@ const MusicItemContainer = () => {
   const [item, setItem] = useState({});
   //Lógica para recibir el ID
   const { musicId } = useParams();
-  console.log(musicId);
 
   useEffect(() => {
     useGetMusic(musicId, setItem);

@@ -58,7 +58,6 @@ export const useGetMusic = (id, setMusic) => {
     .then((response) => response.json())
     .then((response) => {
       response ? setMusic(response) : setMusic(false);
-      console.log(response);
     })
     .catch((err) => console.error(err));
 };
